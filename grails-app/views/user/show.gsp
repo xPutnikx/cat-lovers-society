@@ -97,16 +97,6 @@
 					
 				</li>
 				</g:if>
-			
-				%{--<g:if test="${userInstance?.status}">--}%
-				%{--<li class="fieldcontain">--}%
-					%{--<span id="status-label" class="property-label"><g:message code="user.status.label" default="Status" /></span>--}%
-					%{----}%
-						%{--<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${userInstance}" field="status"/></span>--}%
-					%{----}%
-				%{--</li>--}%
-				%{--</g:if>--}%
-			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">
@@ -118,7 +108,7 @@
 
                     </g:if>
                     <g:if test="${session.user?.id!=userInstance?.id}">
-                        <g:link class="addFriend" action="addFriend" id="${userInstance.id}"><g:message code="default.button.add.friend" default="addFriend" /></g:link>
+                        <g:link class="addFriend" controller="friends" action="addFriend" id="${userInstance.id}"><g:message code="default.button.add.friend" default="addFriend" /></g:link>
                     </g:if>
 				</fieldset>
 			</g:form>

@@ -26,4 +26,14 @@ class User {
         email email: true, blank: false
         nickName size: 5..15, blank: false
     }
+
+    public void addFriend(User userFriend){
+        Friends friend = new Friends(userFriend,false)
+        friend.save(flush: true)
+        friends.add(friend)
+    }
+
+    public void addMessage(MessageItem message){
+        messageItem.add(message)
+    }
 }

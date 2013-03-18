@@ -1,16 +1,34 @@
 package test.society
 
+import sun.swing.BakedArrayList
+
 class UserController {
 
     def scaffold = true
 
     def list(Integer max) {
-        if(PermissionService.hasAdminPermission(session.user)){
+        if(PermissionService.hasUserPermission(session.user) || PermissionService.hasAdminPermission(session.user)){
             params.max = Math.min(max ?: 10, 100)
             [userInstanceList: User.list(params), userInstanceTotal: User.count()]
-        }else if (PermissionService.hasUserPermission(session.user)){
-                redirect(action:"permissionDenied")
-        }else{
+        }else {
+                redirect(action:"home")
+        }
+    }
+
+    def friends(Integer max){
+        if(PermissionService.hasUserPermission(session.user) || PermissionService.hasAdminPermission(session.user)){
+            User user = session.user
+            params.max = Math.min(max ?: 10, 100)
+            List<User> friends= new ArrayList<User>()
+            friends = user.friends.each {
+                if(!it.isBlocked){
+                    return it.friend
+                }
+                return null
+            }
+            friends=friends*.friend
+            [friendsList: friends, friendsTotal: friends.size()]
+        }else {
             redirect(action:"home")
         }
     }
@@ -33,12 +51,15 @@ class UserController {
 
     def authenticate = {
         def user = User.findByLoginAndPassword(params.login, params.password)
-        if(user){
+        if(user && user.isActive){
             session.user = user
             flash.message = "Hello ${((User) user).login}!"
             redirect(controller:"user", action:"home")
-        }else{
+        }else if(user == null){
             flash.message = "Sorry, ${params.login}. Please try again."
+            redirect(action:"login")
+        }else{
+            flash.message = "Sorry, ${params.login}.Your Account isnt active. Please check your email and activate account."
             redirect(action:"login")
         }
     }
@@ -54,8 +75,7 @@ class UserController {
             render(view: "create", model: [userInstance: userInstance])
             return
         }
-        def mailUtil = new MailUtil()
-        mailUtil.mainSender(userInstance)
+        mainSender(userInstance)
         flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
         redirect(action: "show", id: userInstance.id)
     }
@@ -65,8 +85,20 @@ class UserController {
         redirect(controller:"user", action:"home")
     }
 
-    def addFriend = {
-        id = params
+    def mainSender(User userInstance){
+        try {
+            sendMail {
+                to     "${userInstance.email}"
+                subject "Registration Confirmation"
+                html    g.render(template:'/email/registrationConfirmation', model:[user:userInstance])
+            }
+            flash.message = "Confirmation email sent to ${userInstance.email}"
+            userInstance.isActive=true
+            userInstance.save(flush: true)
+        } catch(Exception e) {
+            log.error "Problem sending email $e.message", e
+            flash.message = "Confirmation email NOT sent"
+        }
     }
 
 

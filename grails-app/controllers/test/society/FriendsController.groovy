@@ -99,4 +99,14 @@ class FriendsController {
             redirect(action: "show", id: id)
         }
     }
+
+    def addFriend (Long id){
+        User friend = User.findById(id)
+        if(friend){
+            User currentUser = session.user
+            currentUser.addFriend(friend)
+            currentUser.save(flush: true)
+        }
+
+    }
 }

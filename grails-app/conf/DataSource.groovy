@@ -1,9 +1,9 @@
 grails {
     mongo {
-        host = "localhost"
-        port = 27017
-        username = "admin"
-        password="admin"
+        host = "linus.mongohq.com"
+        port = 10043
+        username = "root"
+        password="qwaszx@1"
         databaseName = 'catlovers'
     }
 }
