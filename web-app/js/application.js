@@ -10,18 +10,17 @@ if (typeof jQuery !== 'undefined') {
 $(function () {
     "use strict";
 
-    var detect = $('#detect');
     var header = $('#header');
     var content = $('#content');
     var input = $('#input');
     var status = $('#status');
-    var myName = false;
-    var author = null;
+    var myName = user;
+    var author = user;
     var logged = false;
     var socket = $.atmosphere;
     var subSocket;
     var transport = 'websocket';
-    var chatUrl = 'http://'+document.location.hostname+':'+document.location.port+'/atmosphere/chat';
+    var chatUrl = 'http://'+document.location.hostname+':'+document.location.port+'/test-datasource/atmosphere/chat';
 
     <!-- The following code is just here for demonstration purpose and not required -->
     <!-- Used to demonstrate the request.onTransportFailure callback. Not mandatory -->
@@ -43,9 +42,7 @@ $(function () {
         req.transport = transport;
         req.headers = { "negotiating" : "true" };
 
-        req.onOpen = function(response) {
-            detect.append('<p><span style="color:blue">' + transport + ' supported: '  + '</span>' + (response.transport == transport));
-        }
+
 
         req.onReconnect = function(request) {
             request.close();
@@ -67,7 +64,7 @@ $(function () {
     request.onOpen = function(response) {
         content.html($('<p>', { text: 'Atmosphere connected using ' + response.transport }));
         input.removeAttr('disabled').focus();
-        status.text('Choose name:');
+//        status.text('Choose name:');
         transport = response.transport;
 
         if (response.transport == "local") {
@@ -126,7 +123,6 @@ $(function () {
             logged = true;
             status.text(myName + ': ').css('color', 'blue');
             input.removeAttr('disabled').focus();
-            subSocket.pushLocal(myName);
         } else {
             input.removeAttr('disabled');
 
@@ -152,16 +148,12 @@ $(function () {
             var msg = $(this).val();
 
             // First message is always the author's name
-            if (author == null) {
-                author = msg;
-            }
-
             subSocket.push(jQuery.stringifyJSON({ author: author, message: msg }));
             $(this).val('');
 
             //input.attr('disabled', 'disabled');
             if (myName === false) {
-                myName = msg;
+                myName = author;
             }
         }
     });

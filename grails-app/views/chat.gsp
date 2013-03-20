@@ -5,12 +5,15 @@
   Time: 1:41
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" import="test.society.User"%>
 <html>
 <head>
+    <g:javascript plugin="jquery" library="jquery"></g:javascript>
     <meta name="layout" content="main">
     <title></title>
-
+    <g:javascript >
+        var user="${((User)session.user).firstName}";
+    </g:javascript>
 
     <style>
     * {
@@ -69,18 +72,14 @@
         margin-top: 15px;
     }
     </style>
-
-    <g:javascript plugin="atmosphere" src="jquery.atmosphere.js" />
 </head>
 
 <body>
 <atmosphere:resources/>
 
-<div id="header"><h3>Atmosphere Chat. Default transport is WebSocket, fallback is long-polling</h3></div>
-<div id="detect"><h3>Detecting what the browser and server are supporting</h3></div>
 <div id="content"></div>
 <div>
-    <span id="status">Connecting...</span>
+    <span id="status">Connected</span>
     <input type="text" id="input"/>
 </div>
 

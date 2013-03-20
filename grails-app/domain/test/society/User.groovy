@@ -36,4 +36,8 @@ class User {
     public void addMessage(MessageItem message){
         messageItem.add(message)
     }
+
+    def toString ={
+         this.firstName+" "+this.lastName
+    }
 }

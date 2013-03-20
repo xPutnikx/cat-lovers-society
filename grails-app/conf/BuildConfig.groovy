@@ -16,6 +16,7 @@ grails.project.dependency.resolution = {
     inherits("global") {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
+        excludes 'jetty'
     }
     log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
@@ -42,6 +43,9 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 
         // runtime 'mysql:mysql-connector-java:5.1.22'
+        compile('org.atmosphere:atmosphere-runtime:1.0.0.beta5') {
+            excludes 'slf4j-api', 'atmosphere-ping'
+        }
     }
 
     plugins {
@@ -56,7 +60,9 @@ grails.project.dependency.resolution = {
 
         build ":tomcat:$grailsVersion"
         compile ":coffeescript-compiler:0.8.1"
-        compile ":atmosphere:0.4.2.3"
+        runtime (":atmosphere:0.4.2.3") {
+            exclude 'atmosphere-runtime'
+        }
 
 //        runtime ":database-migration:1.3.2"
 

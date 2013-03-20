@@ -1,9 +1,8 @@
-package test.society
+package chat
 
+import org.atmosphere.cpr.*
+import org.atmosphere.cpr.AtmosphereResource.TRANSPORT
 import grails.converters.JSON
-import org.atmosphere.cpr.AtmosphereRequest
-import org.atmosphere.cpr.AtmosphereResource
-import org.atmosphere.cpr.AtmosphereResponse
 
 class ChatService {
 
@@ -56,5 +55,4 @@ class ChatService {
     private String createMessage(String author, String text) {
         return new JSON( [text : text, author : author, time : new Date().time] )
     }
-
 }
