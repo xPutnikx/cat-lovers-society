@@ -12,10 +12,10 @@ class MessageItemController {
     def save() {
         def messageItemInstance = new MessageItem(params)
         User userFrom = User.findByNickName(params.from)
-        userFrom.messageItem.add(messageItemInstance)
+        userFrom?.messageItem?.add(messageItemInstance)
         userFrom.save()
         User userTo = User.findByNickName(params.to)
-        userTo.messageItem.add(messageItemInstance)
+        userTo?.messageItem?.add(messageItemInstance)
         userTo.save()
         messageItemInstance.save(flush: true)
         if (!messageItemInstance.save(flush: true)) {

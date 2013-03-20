@@ -4,8 +4,11 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+        <g:javascript library="jquery" plugin="jquery"/>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+        <g:javascript src="app/message.js"></g:javascript>
 	</head>
 	<body>
 		<a href="#show-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -98,7 +101,6 @@
 				</li>
 				</g:if>
 			</ol>
-			<g:form>
 				<fieldset class="buttons">
                     <g:if test="${session.user?.id==userInstance?.id}">
 
@@ -107,11 +109,25 @@
 					%{--<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />--}%
 
                     </g:if>
-                    <g:if test="${session.user?.id!=userInstance?.id}">
+                    <g:if test="${session.user?.id!=userInstance?.id && isFriend}">
                         <g:link class="addFriend" controller="friends" action="addFriend" id="${userInstance.id}"><g:message code="default.button.add.friend" default="addFriend" /></g:link>
                     </g:if>
+                    <g:if test="${isFriend}">
+                        <button class="buttons" id="sendMessage" userId="${session.user?.id}">Send Message</button>
+                    </g:if>
 				</fieldset>
-			</g:form>
+            <g:if test="${session.user?.id != userInstance?.id}">
+                <div class="message-inner-div hidden">
+                    <g:form action="save" controller="messageItem" >
+                        <fieldset class="form">
+                            <g:render model="messageItem" template="message"/>
+                        </fieldset>
+                        <fieldset class="buttons">
+                            <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                        </fieldset>
+                    </g:form>
+                </div>
+            </g:if>
 		</div>
 	</body>
 </html>

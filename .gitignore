@@ -17,6 +17,7 @@ local.properties
 .settings/
 .loadpath
 target
+out
 *.iml
 plugins/jquery-1.8.3/docs/
 plugins/resources-1.1.6/src/docs/

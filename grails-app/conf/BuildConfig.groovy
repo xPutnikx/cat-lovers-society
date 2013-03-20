@@ -55,6 +55,8 @@ grails.project.dependency.resolution = {
         //runtime ":yui-minify-resources:0.1.5"
 
         build ":tomcat:$grailsVersion"
+        compile ":coffeescript-compiler:0.8.1"
+        compile ":atmosphere:0.4.2.3"
 
 //        runtime ":database-migration:1.3.2"
 

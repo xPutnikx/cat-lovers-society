@@ -88,6 +88,7 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+    info 'org.grails.plugins.coffee.compiler'
 }
 
 //SMTP Server
@@ -103,3 +104,19 @@ grails {
                 "mail.smtp.socketFactory.fallback":"false"]
     }
 }
+
+//Coffee
+"coffeescript-compiler" {
+
+    appSource {
+        coffeeSourcePath = "web-app/coffee"
+        jsOutputPath = "web-app/js/app"
+    }
+
+    testSource {
+        coffeeSourcePath = "web-app/coffee"
+        jsOutputPath = "web-app/js/app"
+    }
+
+}
+grails.views.javascript.library="jquery"

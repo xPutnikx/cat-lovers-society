@@ -1,7 +1,5 @@
 package test.society
 
-import sun.swing.BakedArrayList
-
 class UserController {
 
     def scaffold = true
@@ -99,6 +97,22 @@ class UserController {
             log.error "Problem sending email $e.message", e
             flash.message = "Confirmation email NOT sent"
         }
+    }
+
+    def show(Long id) {
+        def userInstance = User.get(id)
+        User user = session.user
+        def friendList = user.getFriends()
+        if (!userInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
+            redirect(action: "list")
+            return
+        }
+        def isFriend = false;
+        if (((List<Long>)friendList*.getFriend()*.getId()).contains(userInstance.id)){
+            isFriend = true
+        }
+        [userInstance: userInstance,isFriend: isFriend]
     }
 
 
