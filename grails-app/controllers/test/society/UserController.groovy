@@ -35,18 +35,6 @@ class UserController {
 
     def login = {}
 
-    def home = {
-        def userInstance = null
-        if(session.user!=null){
-            userInstance = session.user
-            flash.message = "Hello ${((User) userInstance).login}!"
-            redirect(action: "show/${((User) userInstance).id}")
-        }else{
-            flash.message="Welcome to Cat Lovers Society"
-        }
-        [userInstance: userInstance]
-    }
-
     def authenticate = {
         def user = User.findByLoginAndPassword(params.login, params.password)
         if(user && user.isActive){

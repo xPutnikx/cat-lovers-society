@@ -9,6 +9,7 @@
 <html>
 <head>
     <g:javascript plugin="jquery" library="jquery"></g:javascript>
+    <g:javascript src="chat.js"></g:javascript>
     <meta name="layout" content="main">
     <title></title>
     <g:javascript >
