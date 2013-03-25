@@ -12,6 +12,9 @@ class User {
     String nickName
     String status
     boolean isActive = false
+    Photo avatar
+    String userStatus
+    Integer skin
 
     List<Friends> friends = new ArrayList<Friends>()
     List<MessageItem> messageItem = new ArrayList<MessageItem>()
