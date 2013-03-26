@@ -134,122 +134,6 @@ h4 {
 }
 
 
-/* ===[ Layout ]=== */
-
-.wrap {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1320px;
-}
-
-.section-wrap {
-    padding-bottom: 20px;
-}
-
-.lt-ie8 .section-wrap { zoom: 1; }
-
-.section-1 {
-    width: 31%;
-    float: left;
-    min-height: 1px;
-}
-
-.section-2 {
-    width: 66%;
-    float: left;
-    margin: 0 0 0 3%;
-    min-height: 1p
-}
-
-
-/* ===[ Header ]=== */
-
-/*.topline {
-    background: #484f53 url(../img/darkBG.jpg);
-    height: 2px;
-    border-bottom: 1px solid #000;
-    -moz-box-shadow: 0 1px 0 #fff;
-    -webkit-box-shadow: 0 1px 0 #fff;
-    box-shadow: 0 1px 0 #fff;
-}
-
-h1.title {
-    float: left;
-    font-size: 50px;
-}
-
-    h1.title a {
-        color: #484f53;
-        text-transform: uppercase;
-        font-family: "ltc-squareface-sc", sans-serif;
-        text-shadow: 0 1px 0 #fff, 0 -1px 0 #000;
-        padding: 0;
-        margin: 0;
-        border: none;
-        background: none;
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        -webkit-mask-image: url(../img/mask.png);
-    }
-
-h1.title,
-#top-buttons { padding: 46px 0 }
-
-#top-buttons {
-    display: block;
-    float: right;
-}
-
-    #top-buttons > a {
-        font-size: 20px;
-        display: block;
-        float: left;
-        text-align: center;
-    }
-
-#download {
-    padding: 10px 20px 10px 47px;
-    background: url(../img/dl.svg) no-repeat 16px 50%, #fff;
-    background: url(../img/dl.svg) no-repeat 16px 50%, #fff -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    background: url(../img/dl.svg) no-repeat 16px 50%, #fff -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    background: url(../img/dl.svg) no-repeat 16px 50%, #fff -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    background: url(../img/dl.svg) no-repeat 16px 50%, #fff -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    background: url(../img/dl.svg) no-repeat 16px 50%, #fff linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    -webkit-border-radius: 5px 0 0 5px;
-    -moz-border-radius: 5px 0 0 5px;
-    border-radius: 5px 0 0 5px;
-}
-
-.no-inlinesvg #download { background: #fff url(../img/dl.png) no-repeat 16px 50%; }
-
-#download:active { background: url(../img/dl.svg) no-repeat 16px 50%, #484f53 url(../img/darkBG.jpg); }
-
-.no-inlinesvg #download:active { background: #484f53 url(../img/dl.png) no-repeat 16px 50%; }
-
-#github {
-    padding: 10px 20px 10px 39px;
-    border-left: 0;
-    background: url(../img/git.svg) no-repeat 13px 55%, #fff;
-    background: url(../img/git.svg) no-repeat 13px 55%, #fff -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    background: url(../img/git.svg) no-repeat 13px 55%, #fff -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    background: url(../img/git.svg) no-repeat 13px 55%, #fff -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    background: url(../img/git.svg) no-repeat 13px 55%, #fff -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    background: url(../img/git.svg) no-repeat 13px 55%, #fff linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .01)) 0 0 repeat;
-    -webkit-border-radius: 0 5px 5px 0;
-    -moz-border-radius: 0 5px 5px 0;
-    border-radius: 0 5px 5px 0;
-}
-
-.no-inlinesvg #github { background: #fff url(../img/git.png) no-repeat 13px 55%; }
-
-#github:active { background: url(../img/git.svg) no-repeat 13px 55%, #484f53 url(../img/darkBG.jpg); }
-
-.no-inlinesvg #github:active { background: #484f53 url(../img/git.png) no-repeat 13px 50%; }
-*/
-
-/* ===[ Upper area ]=== */
-
 #left {
     color: #fff;
     text-shadow: 0 -1px 0 #000;
@@ -721,6 +605,9 @@ h1.title,
     margin-top: 20%;
     margin-bottom: 130px;
     margin-left: 30%;
+}
+.auth{
+    margin-top: 180px;
 }
 
 .form-wrap{

@@ -36,7 +36,7 @@
             </g:eachError>
         </ul>
     </g:hasErrors>
-    <g:form action="saveUser">
+    <g:form action="saveUser" controller="user">
         <fieldset class="form">
             <g:render template="form"/>
         </fieldset>

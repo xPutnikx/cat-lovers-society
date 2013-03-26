@@ -8,7 +8,6 @@
 
 .rs-slide-bg {
     padding: 10px;
-    background: url(../img/black10.png);
     background: rgba(0, 0, 0, .1);
     border-bottom: 1px solid #5e6266!important;
     border-bottom: 1px solid rgba(255, 255, 255, .1)!important;
@@ -44,7 +43,6 @@
         opacity: .7;
         padding: 8px;
         *padding: 0;
-        background: url(../img/black10.png);
         background: rgba(0, 0, 0, .1);
         border-bottom: 1px solid #5e6266!important;
         border-bottom: 1px solid rgba(255, 255, 255, .1)!important;
@@ -95,7 +93,6 @@
         border: 1px solid rgba(0, 0, 0, .2);
         border-bottom: 1px solid #313437;
         border-bottom: 1px solid rgba(0, 0, 0, .35);
-        background: url(../img/black10.png);
         background: rgba(0, 0, 0, .1);
         background: -webkit-linear-gradient(top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .2));
         background: -moz-linear-gradient(top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .2));
@@ -172,7 +169,6 @@
     color: #fff;
     text-shadow: 0 -1px 0 #000;
     border: 1px solid #000;
-    background: url(../img/black60.png);
     background: rgba(0, 0, 0, .6);
     background: -moz-linear-gradient(top, rgba(0, 0, 0, .45), rgba(0, 0, 0, .7));
     background: -webkit-linear-gradient(top, rgba(0, 0, 0, .45), rgba(0, 0, 0, .7));

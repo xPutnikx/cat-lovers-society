@@ -57,6 +57,9 @@ class UserController {
         def userInstance = new User(params)
         userInstance.setStatus("user")
         userInstance.setIsActive(false)
+        userInstance.setSkin(0)
+        userInstance.setUserStatus("I`m created")
+        userInstance.setAvatar(new Photo())
         userInstance.save(flush: true)
         if (!userInstance.save(flush: true)) {
             render(view: "create", model: [userInstance: userInstance])
@@ -64,7 +67,7 @@ class UserController {
         }
         mainSender(userInstance)
         flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-        redirect(action: "show", id: userInstance.id)
+        redirect(action: "home")
     }
 
     def home = {
@@ -103,15 +106,17 @@ class UserController {
     def show(Long id) {
         def userInstance = User.get(id)
         User user = session.user
-        def friendList = user.getFriends()
+        def friendList = user?.getFriends()
         if (!userInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), id])
             redirect(action: "list")
             return
         }
         def isFriend = false;
-        if (((List<Long>) friendList*.getFriend()*.getId()).contains(userInstance.id)) {
-            isFriend = true
+        if(friendList!=null){
+            if (userInstance.id in ((List<Long>) friendList*.getFriend()*.getId())) {
+                isFriend = true
+            }
         }
         [userInstance: userInstance, isFriend: isFriend]
     }
@@ -138,5 +143,10 @@ class UserController {
         User user = session.user
         user.setSkin(params.skinId)
         user.save(flush: true)
+    }
+
+    def recovery = {
+        User user = User.findByLoginAndEmail(params.login,params.email)
+        mainSender(user)
     }
 }
