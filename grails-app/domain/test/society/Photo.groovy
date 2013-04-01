@@ -6,6 +6,7 @@ class Photo {
     String path
     byte[] data
     User user
+
     static constraints = {
     }
 }

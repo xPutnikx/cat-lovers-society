@@ -26,23 +26,20 @@
 <body>
 <div style="width: 1000px;height: 800px">
     <ul id="images" class="rs-slider">
-        <li>
+        <li class="form-wrap">
             <a href="#" class="slide-parent">
-                <img src="${resource(dir: 'images/slider', file: 'form.jpg')}" alt="Grails"/>
+                <img src="${resource(dir: 'images/cats', file: 'wallpaper-1482.jpg')}" alt="Grails"/>
             </a>
 
         </li>
-        <li>
-            <img src="${resource(dir: 'images/slider', file: 'greenbut.jpg')}" alt="Grails"/>
+        <li class="form-wrap">
+            <img src="${resource(dir: 'images/cats', file: 'belosnejnii-kotik-1600x1200.jpg')}" alt="Grails"/>
         </li>
-        <li>
+        <li class="form-wrap">
             <a href="#">
-                <img src="${resource(dir: 'images/slider', file: 'wood6.jpg')}" alt="Grails"/>
+                <img src="${resource(dir: 'images/cats', file: 'white_kitty_with_blue_eyes.jpg')}" alt="Grails"/>
             </a>
         </li>
-        <li><img src="${resource(dir: 'images/slider', file: 'red.jpg')}" alt="Grails"/>
-        </li>
-        <li><img src="${resource(dir: 'images/slider', file: '6.jpg')}" alt="Grails"/></li>
     </ul>
     <ul id="forms" class="rs-slider">
         <li class="form-wrap">

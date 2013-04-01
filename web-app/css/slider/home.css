@@ -1,5 +1,12 @@
 /* ===[ General ]=== */
 
+.title-lable{
+    margin-left: 35%;
+    color: black;
+    font-variant: small-caps;
+    font-size: 30px;
+    font-family: cursive;
+}
 html {
     height: 100%;
 }

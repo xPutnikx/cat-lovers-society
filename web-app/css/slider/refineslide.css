@@ -26,11 +26,12 @@
     top: 150px;
     left: 40px;
     max-width: 100%;
+    margin-top: -50px;
 }
 
 .rs-slide-bg {
     *zoom: 1;
-    height: 450px;
+    height: 430px;
     min-width: 458px;
     margin: 10px;
     position: relative;

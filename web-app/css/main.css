@@ -23,7 +23,13 @@ html {
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
 }
-
+.title-lable{
+    margin-left: 35%;
+    color: black;
+    font-variant: small-caps;
+    font-size: 30px;
+    font-family: cursive;
+}
 html.no-cssgradients {
 	background-color: #aaa;
 }
@@ -37,7 +43,7 @@ html * {
 }
 
 body {
-	background: #ffffff;
+	background: url(../images/stripe_f8cf52b117ee0ae07643fc1e97bdc31e.png), repeat-x;
 	color: #333333;
 	margin: 0 auto;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */

@@ -18,10 +18,8 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><img src="${resource(dir: 'images', file: 'logo.png')}" alt="Grails"/></div>
+		<img src="${resource(dir: 'images', file: 'logo.png')}" alt="Grails" style="width: 80px;"/><lable class="title-lable"> Cat Lover`s Society</lable>
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<g:javascript library="application"/>
 		<r:layoutResources />
 	</body>
